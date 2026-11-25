@@ -1,0 +1,6 @@
+{
+  "name": "SIST Student Portal",
+  "description": "One fast, modern dashboard over a Sathyabama student's ERP and Moodle LMS data with attendance bunk calculator, CGPA planner, unified deadlines, and notifications.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
