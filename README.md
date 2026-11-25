@@ -21,12 +21,16 @@ npm run build
 
 ## Production
 
-Generate a secret with `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"` and set `SESSION_SECRET` in your hosting environment. Use an HTTPS Node.js host that supports a persistent Express process, set `DATA_SOURCE=mock`, then run `npm run build` and `npm start`. Production cookies require HTTPS. For Vercel, import this repository, use the included vercel.json, and set SESSION_SECRET and DATA_SOURCE=mock. The API is a serverless Express handler; in-memory cache and outage simulation are instance-local and may reset. Deployment has not been verified.
+Generate a secret with `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"` and set `SESSION_SECRET` in your hosting environment. Use an HTTPS Node.js host that supports a persistent Express process, set `DATA_SOURCE=mock`, then run `npm run build` and `npm start`. Production cookies require HTTPS. For Vercel, import this repository, use the included vercel.json, and set SESSION_SECRET and DATA_SOURCE=mock. The API is a serverless Express handler at `api/index.ts`; in-memory cache and outage simulation are instance-local and may reset. Deployment has not been verified.
 
-The old lockfiles described incompatible projects and were removed. Run `npm install` to generate a new npm lockfile, then commit it. Dependency installation and full browser/build validation require registry access.
+The old lockfiles described incompatible projects and were removed. Run `npm install` to generate a new npm lockfile, then commit it. Dependency installation and full browser/build validation require registry access. The repair environment could not reach npm, so a new lockfile could not be generated.
 
 The API uses encrypted session cookies and in-memory caching. No real student credentials should be entered. The health endpoint reports that upstream adapters are unavailable.
 
 ## Recreated welcome experience
 
 Routes: `/` and `/welcome` show the landing page, `/login` opens the sample sign-in, `/dashboard` opens the authenticated workspace. Demo sessions now require explicit sign-in. The original SISTmate website could not be inspected; this is an independent design, not its original source.
+
+## Latest validation
+
+All 22 TypeScript files transpiled without syntax diagnostics and 12 core/session tests passed using the available TypeScript compiler and Node.js test runner. Full type checking, Vite build and Express startup remain unverified because npm registry DNS resolution failed in the test environment.
